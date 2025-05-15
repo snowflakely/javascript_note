@@ -6,28 +6,41 @@
     <title>Document</title>
 </head>
 <style>
-    /*250514*/
     body{ background: #5a5a5a;}
     .con{ position: relative; width: 80%; margin: 0 auto; padding: 40px; background: #f5feff;}
     .con:nth-child(2n){ background: #e0fdff;}
     .con h2{ text-align: center; margin: 20px 0; }
     #alert_box{ display: none; background: rgb(216, 236, 255); color: rgb(36, 36, 36); padding: 20px; border-radius: 5px;}
-    /*250514*/
 </style>
 <body>
     <div class="con">
-        <h2>250514</h2>
         <h3 id="hello">hello</h3>
-        <div id="alert_box">Alert box<button onclick="document.getElementById('alert_box').style.display = 'none';">close</button></div>
-        <button onclick="document.getElementById('alert_box').style.display = 'block'; ">button</button>
+        <div id="alert_box">Alert box<button onclick="alert_close()">close</button></div>
+        <button>button</button>
     </div>
 </body>
 </html>
 <script>
-    //250514
     //문서 안에서 id가 hello인 요소의 내용을 hi로 바꿔라라
     document.getElementById('hello').innerHTML = 'hi';
-    //style 바꾸기기
+    //Element.style 엘리먼트에 적용된 스타일 가져오기 html 태그 내에 인라인으로 정의한 것들
+    //getComputedStyle() 최종적으로 적용된 css스타일 값 반환
     document.getElementById('hello').style.fontSize = "30px";
-    //250514
+    function alert_open(){
+        document.getElementById('alert_box').style.display = "block";
+    }
+    function alert_close(){
+        document.getElementById('alert_box').style.display = "none";
+    }
+    // function name(paramater){}
+    // 파라미터로 함수 이용
+    document.getElementById('alert_box').addEventListener('click', function(){
+        if(document.getElementById('alert_box').style.display === "block"){
+            alert_close();
+        }else{
+            alert_open();
+        }
+    });
+
+
 </script>
